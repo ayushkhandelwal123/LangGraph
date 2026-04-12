@@ -1,5 +1,5 @@
 import streamlit as st
-from langGraph_backend import chatbot
+from langGraph_backend import chatbot, retrieve_all_threads
 from langchain_core.messages import HumanMessage
 import uuid
 from datetime import datetime
@@ -31,7 +31,7 @@ def add_thread(thread_id, name=None):
         st.session_state.thread_names[thread_id] = name
 
 def load_conversation(thread_id):
-    return chatbot.get_state(config = {"configurable": {"thread_id": thread_id}}).values["messages"]
+    return chatbot.get_state(config = {"configurable": {"thread_id": thread_id}}).values.get("messages", [])   #["messages"]
 
 
 ########################### Session State Management ###########################
@@ -42,7 +42,7 @@ if "thread_id" not in st.session_state:
     st.session_state.thread_id = get_thread_id()
 
 if "chat_threads" not in st.session_state:
-    st.session_state.chat_threads = []
+    st.session_state.chat_threads = retrieve_all_threads()
 
 if "thread_names" not in st.session_state:  # New: store names mapping
     st.session_state.thread_names = {}

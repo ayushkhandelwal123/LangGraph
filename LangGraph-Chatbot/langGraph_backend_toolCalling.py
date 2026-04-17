@@ -56,7 +56,7 @@ def get_stock_price(symbol: str) -> dict:
     using Alpha Vantage with API key in the URL.
     """
 
-    url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey=XQ62AN1GQ9CVB3T6"
+    url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey=XQxxxxxxxxxxxxxxxxxxx"
     response = requests.get(url)
     return response.json()
 

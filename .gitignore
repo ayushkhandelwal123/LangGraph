@@ -1,2 +1,6 @@
 .env
 venv
+
+Blog\ Research\ Agent/*.md
+
+__pycache__/

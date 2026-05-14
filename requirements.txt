@@ -10,3 +10,4 @@ streamlit
 langchain_community
 ddgs
 sentence_transformers
+google-genai
